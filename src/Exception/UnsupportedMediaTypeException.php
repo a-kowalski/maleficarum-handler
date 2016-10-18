@@ -1,6 +1,6 @@
 <?php
 /**
- * This exception gets thrown when API receives unsupported media type
+ * This exception gets thrown when app receives unsupported media type
  * @extends \Exception
  */
 

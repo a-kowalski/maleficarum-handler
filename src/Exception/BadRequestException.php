@@ -1,6 +1,6 @@
 <?php
 /**
- * This exception gets thrown when API receives a bad request.
+ * This exception gets thrown when app receives a bad request.
  * @extends \Exception
  */
 
