@@ -10,7 +10,7 @@ class ExceptionHandler extends \Maleficarum\Handler\AbstractHandler
      * @param \Exception|\Throwable $exception
      */
     public function handle($exception) {
-        if (!$exception instanceof \Exception && $exception instanceof \Throwable) {
+        if (!$exception instanceof \Exception && !$exception instanceof \Throwable) {
             throw new \InvalidArgumentException('Invalid exception parameter provided. \Maleficarum\Handler\ExceptionHandler::handle()');
         }
 
