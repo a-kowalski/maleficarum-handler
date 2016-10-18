@@ -1,0 +1,13 @@
+{
+    "name": "maleficarum/handler",
+    "description": "Maleficarum handler component",
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maleficarum\\Handler\\": "src/Handler/",
+            "Maleficarum\\Exception\\": "src/Exception/"
+        }
+    }
+}
