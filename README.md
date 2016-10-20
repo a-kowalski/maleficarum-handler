@@ -1,6 +1,10 @@
 # Change Log
 This is the Maleficarum Handler component implementation. 
 
+## [1.0.2] - 2016-10-20
+### Fixed
+- Pass context parameter to generic error handler
+
 ## [1.0.1] - 2016-10-18
 ### Fixed
 - Fixed ExceptionHandler parameter validation
