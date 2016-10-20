@@ -15,6 +15,6 @@ class ErrorHandler extends \Maleficarum\Handler\AbstractHandler
      */
     public function handle($code, $message, $file, $line, array $context) {
         $handler = \Maleficarum\Ioc\Container::get('Maleficarum\Handler\Error\Generic');
-        $handler->handle($code, $message, $file, $line, self::$debugLevel);
+        $handler->handle($code, $message, $file, $line, $context, self::$debugLevel);
     }
 }
