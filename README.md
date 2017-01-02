@@ -1,6 +1,10 @@
 # Change Log
 This is the Maleficarum Handler component implementation. 
 
+## [1.0.3] - 2017-01-02
+### Fixed
+- Add 503 Service Unavailable exception
+
 ## [1.0.2] - 2016-10-20
 ### Fixed
 - Pass context parameter to generic error handler
