@@ -1,6 +1,10 @@
 # Change Log
 This is the Maleficarum Handler component implementation. 
 
+## [1.1.0] - 2017-01-10
+### Added
+- Add generic exception handling for CLI
+
 ## [1.0.3] - 2017-01-02
 ### Fixed
 - Add 503 Service Unavailable exception
