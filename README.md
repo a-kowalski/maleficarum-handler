@@ -2,6 +2,10 @@
 This is the Maleficarum Handler component implementation. 
 
 ## [1.1.0] - 2017-01-10
+### Fixed
+- Changed service unavailable exception filename
+
+## [1.1.0] - 2017-01-10
 ### Added
 - Add generic exception handling for CLI
 
