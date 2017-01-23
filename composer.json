@@ -2,9 +2,9 @@
     "name": "maleficarum/handler",
     "description": "Maleficarum handler component",
     "require": {
-        "php": ">=5.6",
-        "maleficarum/ioc": "^1.0",
-        "maleficarum/response": "^1.0"
+        "php": ">=7.0",
+        "maleficarum/ioc": "^2.0",
+        "maleficarum/response": "^2.0"
     },
     "autoload": {
         "psr-4": {
