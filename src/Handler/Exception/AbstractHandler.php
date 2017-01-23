@@ -1,4 +1,7 @@
 <?php
+/**
+ * This class is a base for all exceptions handlers
+ */
 
 namespace Maleficarum\Handler\Exception;
 
@@ -15,14 +18,15 @@ abstract class AbstractHandler
     /**
      * Handle exception
      *
-     * @param \Exception|\Throwable $exception
+     * @param \Throwable $exception
      * @param int $debugLevel
      *
-     * @return mixed
+     * @return void
+     * @throws \InvalidArgumentException
      */
-    public function handle($exception, $debugLevel) {
+    public function handle(\Throwable $exception, int $debugLevel) {
         if (!is_int($debugLevel)) {
-            throw new \InvalidArgumentException(sprintf('Incorrect debug level - integer expected. \%s::handle()', get_class($this)));
+            throw new \InvalidArgumentException(sprintf('Incorrect debug level - integer expected. \%s::handle()', static::class));
         }
 
         if ($this->getResponse() instanceof \Maleficarum\Response\Response) {
@@ -37,9 +41,11 @@ abstract class AbstractHandler
 
     /**
      * Render data
-     * 
+     *
      * @param array $data
      * @param array $meta
+     *
+     * @return void
      */
     protected function render(array $data, array $meta) {
         if ($this->getResponse() instanceof \Maleficarum\Response\Response) {
@@ -65,6 +71,14 @@ abstract class AbstractHandler
         exit;
     }
 
+    /**
+     * Render exception data as JSON
+     * 
+     * @param array $data
+     * @param array $meta
+     * 
+     * @return void
+     */
     protected function renderGeneric(array $data, array $meta) {
         header('HTTP/1.1 ' . $this->getDefaultMessage());
         header('Content-type: application/json');
@@ -79,26 +93,26 @@ abstract class AbstractHandler
     /* ------------------------------------ Abstract methods START ------------------------------------- */
     /**
      * Handle response
-     * 
-     * @param \Exception|\Throwable $exception
+     *
+     * @param \Throwable $exception
      * @param int $debugLevel
      *
-     * @return mixed
+     * @return void
      */
-    abstract protected function handleResponse($exception, $debugLevel);
+    abstract protected function handleResponse(\Throwable $exception, int $debugLevel);
 
     /**
      * Get response status code
-     * 
+     *
      * @return int
      */
-    abstract protected function getResponseStatusCode();
+    abstract protected function getResponseStatusCode() : int;
 
     /**
      * Get default message
-     * 
+     *
      * @return string
      */
-    abstract protected function getDefaultMessage();
+    abstract protected function getDefaultMessage() : string;
     /* ------------------------------------ Abstract methods END --------------------------------------- */
 }

@@ -1,4 +1,7 @@
 <?php
+/**
+ * This class is a base for all handler classes
+ */
 
 namespace Maleficarum\Handler;
 
@@ -22,15 +25,10 @@ abstract class AbstractHandler
      * Set debug level for all handlers in the application (both error and exception)
      *
      * @param int $level
-     *
-     * @throws \InvalidArgumentException
+     * 
+     * @return void
      */
-    public static function setDebugLevel($level)
-    {
-        if (!is_int($level)) {
-            throw new \InvalidArgumentException('Incorrect debug level provided. \Maleficarum\Handler\AbstractHandler::setDebugLevel()');
-        }
-
+    public static function setDebugLevel(int $level) {
         self::$debugLevel = $level;
     }
 }

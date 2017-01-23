@@ -21,7 +21,7 @@ class ConflictException extends \Exception
      *
      * @return array
      */
-    public function getErrors() {
+    public function getErrors() : array {
         return $this->errors;
     }
 
@@ -32,7 +32,7 @@ class ConflictException extends \Exception
      *
      * @return \Maleficarum\Exception\ConflictException
      */
-    public function setErrors(array $errors) {
+    public function setErrors(array $errors) : ConflictException {
         $this->errors = $errors;
 
         return $this;

@@ -21,7 +21,7 @@ class BadRequestException extends \Exception
      *
      * @return array
      */
-    public function getErrors() {
+    public function getErrors() : array {
         return $this->errors;
     }
 
@@ -30,9 +30,9 @@ class BadRequestException extends \Exception
      *
      * @param array $errors
      *
-     * @return \Maleficarum\Exception\BadRequestException
+     * @return BadRequestException
      */
-    public function setErrors(array $errors) {
+    public function setErrors(array $errors) : BadRequestException {
         $this->errors = $errors;
 
         return $this;

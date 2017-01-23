@@ -1,4 +1,7 @@
 <?php
+/**
+ * This class provides functionality of handling unsupported media type exception
+ */
 
 namespace Maleficarum\Handler\Exception;
 
@@ -6,25 +9,38 @@ class UnsupportedMediaType extends \Maleficarum\Handler\Exception\AbstractHandle
 {
     /* ------------------------------------ AbstractHandler methods START ---------------------------- */
     /**
+     * Handle response for unsupported media type exception
+     *
      * @see \Maleficarum\Handler\Exception\AbstractHandler::handleResponse()
+     *
+     * @param \Throwable $exception
+     * @param int $debugLevel
+     *
+     * @return void
      */
-    protected function handleResponse($exception, $debugLevel) {
+    protected function handleResponse(\Throwable $exception, int $debugLevel) {
         $message = $debugLevel >= \Maleficarum\Handler\AbstractHandler::DEBUG_LEVEL_LIMITED ? $exception->getMessage() : $this->getDefaultMessage();
 
         $this->render([], ['msg' => $message]);
     }
 
     /**
+     * Get response status code for unsupported media type exception
+     *
      * @see \Maleficarum\Handler\Exception\AbstractHandler::getResponseStatusCode()
+     * @return int
      */
-    protected function getResponseStatusCode() {
-        return \Maleficarum\Response\Status::STATUS_CODE_415;
+    protected function getResponseStatusCode() : int {
+        return 415;
     }
 
     /**
+     * Get default status message for unsupported media type exception
+     *
      * @see \Maleficarum\Handler\Exception\AbstractHandler::getDefaultMessage()
+     * @return string
      */
-    protected function getDefaultMessage() {
+    protected function getDefaultMessage() : string {
         return '415 Unsupported Media Type';
     }
     /* ------------------------------------ AbstractHandler methods END ------------------------------ */
