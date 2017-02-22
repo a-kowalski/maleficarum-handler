@@ -21,6 +21,26 @@ abstract class AbstractHandler
      */
     protected static $debugLevel = self::DEBUG_LEVEL_CRUCIAL;
 
+    /* ------------------------------------ AbstractHandler methods START ------------------------------ */
+    /**
+     * Log message
+     *
+     * @param int $priority
+     * @param string $message
+     */
+    protected function log(int $priority, string $message) {
+        syslog($priority, $message);
+    }
+
+    /**
+     * Terminate execution
+     */
+    protected function terminate() {
+        exit;
+    }
+    /* ------------------------------------ AbstractHandler methods END -------------------------------- */
+
+    /* ------------------------------------ Setters & Getters START ------------------------------------ */
     /**
      * Set debug level for all handlers in the application (both error and exception)
      *
@@ -31,4 +51,5 @@ abstract class AbstractHandler
     public static function setDebugLevel(int $level) {
         self::$debugLevel = $level;
     }
+    /* ------------------------------------ Setters & Getters END -------------------------------------- */
 }

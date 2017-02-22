@@ -1,6 +1,14 @@
 # Change Log
 This is the Maleficarum Handler component implementation. 
 
+## [3.0.0] - 2017-02-22
+### Changed
+- Bump response component version
+- Add handler for command line
+- Add handler response strategies
+- Add tests
+- Remove unnecessary composer repositories
+
 ## [2.0.0] - 2017-01-23
 ### Changed
 - Add return and argument types declaration

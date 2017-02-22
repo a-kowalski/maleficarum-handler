@@ -1,41 +1,25 @@
 <?php
 /**
- * This exception gets thrown when app receives a bad request.
- * @extends \Exception
+ * This class represents bad request exception
  */
 
 namespace Maleficarum\Exception;
 
-class BadRequestException extends \Exception
+class BadRequestException extends HttpException
 {
-    /**
-     * Internal storage for errors that caused this exception to be thrown.
-     *
-     * @var array
-     */
-    private $errors = [];
-
-    /* ------------------------------------ Setters & Getters START ------------------------------------ */
-    /**
-     * Fetch errors.
-     *
-     * @return array
-     */
-    public function getErrors() : array {
-        return $this->errors;
-    }
+    use ErrorTrait;
 
     /**
-     * Set error list.
+     * BadRequestException constructor.
      *
+     * @param string $message
+     * @param int $code
+     * @param \Exception|null $previous
      * @param array $errors
-     *
-     * @return BadRequestException
      */
-    public function setErrors(array $errors) : BadRequestException {
-        $this->errors = $errors;
+    public function __construct(string $message = '', int $code = 0, \Exception $previous = null, array $errors = []) {
+        $this->setErrors($errors);
 
-        return $this;
+        parent::__construct(400, 'Bad Request', $message, $code, $previous);
     }
-    /* ------------------------------------ Setters & Getters END -------------------------------------- */
 }

@@ -8,7 +8,7 @@ namespace Maleficarum\Handler;
 class ErrorHandler extends \Maleficarum\Handler\AbstractHandler
 {
     /**
-     * Handle error
+     * Generic PHP error handling functionality. For now it just converts errors into runtime exceptions and lets the exception handler deal with them.
      *
      * @param int $code
      * @param string $message
@@ -17,10 +17,9 @@ class ErrorHandler extends \Maleficarum\Handler\AbstractHandler
      * @param array $context
      *
      * @return void
+     * @throws \RuntimeException
      */
     public function handle(int $code, string $message, string $file, int $line, array $context) {
-        /** @var \Maleficarum\Handler\Error\Generic $handler */
-        $handler = \Maleficarum\Ioc\Container::get('Maleficarum\Handler\Error\Generic');
-        $handler->handle($code, $message, $file, $line, $context, self::$debugLevel);
+        throw new \RuntimeException('[PHP Error] Code: ' . $code . ', Comment: ' . $message . ', File: ' . $file . ', Line: ' . $line);
     }
 }

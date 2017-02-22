@@ -1,10 +1,14 @@
 {
     "name": "maleficarum/handler",
     "description": "Maleficarum handler component",
+    "license": "proprietary",
     "require": {
         "php": ">=7.0",
         "maleficarum/ioc": "^2.0",
-        "maleficarum/response": "^2.0"
+        "maleficarum/response": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
     },
     "autoload": {
         "psr-4": {
