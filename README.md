@@ -1,6 +1,10 @@
 # Change Log
 This is the Maleficarum Handler component implementation. 
 
+## [3.1.0] - 2017-03-27
+### Added
+- Added new exception: UnauthorizedException
+
 ## [3.0.0] - 2017-02-22
 ### Changed
 - Bump response component version
