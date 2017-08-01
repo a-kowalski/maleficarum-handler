@@ -1,7 +1,7 @@
 # Change Log
 This is the Maleficarum Handler component implementation. 
 
-## [3.1.0] - 2017-08-01
+## [3.1.1] - 2017-08-01
 ### Added
 - Added strict types declaration
 
