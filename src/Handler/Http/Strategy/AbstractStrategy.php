@@ -2,11 +2,11 @@
 /**
  * This class is a base for all handler response strategies
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Handler\Http\Strategy;
 
-abstract class AbstractStrategy
-{
+abstract class AbstractStrategy {
     /**
      * Use \Maleficarum\Response\Dependant functionality.
      *
@@ -41,7 +41,7 @@ abstract class AbstractStrategy
      *
      * @return int
      */
-    protected function getStatusCode(\Throwable $throwable) : int {
+    protected function getStatusCode(\Throwable $throwable): int {
         $statusCode = 500;
         if ($throwable instanceof \Maleficarum\Exception\HttpException) {
             $statusCode = $throwable->getStatusCode();
@@ -57,7 +57,7 @@ abstract class AbstractStrategy
      *
      * @return string
      */
-    protected function getReasonPhrase(\Throwable $throwable) : string {
+    protected function getReasonPhrase(\Throwable $throwable): string {
         $reasonPhrase = 'Internal Server Error';
         if ($throwable instanceof \Maleficarum\Exception\HttpException) {
             $reasonPhrase = $throwable->getReasonPhrase();
@@ -74,11 +74,11 @@ abstract class AbstractStrategy
      *
      * @return string
      */
-    protected function getMessage(\Throwable $throwable, int $debugLevel) : string {
+    protected function getMessage(\Throwable $throwable, int $debugLevel): string {
         if (!$throwable instanceof \Maleficarum\Exception\HttpException) {
             return $debugLevel > \Maleficarum\Handler\AbstractHandler::DEBUG_LEVEL_CRUCIAL ? $throwable->getMessage() : 'API Error';
         }
- 
+
         $defaultMessage = sprintf('%d %s', $throwable->getStatusCode(), $throwable->getReasonPhrase());
 
         // set response message based on debug level
@@ -95,7 +95,7 @@ abstract class AbstractStrategy
      *
      * @return array
      */
-    protected function getErrors(\Throwable $throwable) : array {
+    protected function getErrors(\Throwable $throwable): array {
         if (method_exists($throwable, 'getErrors')) {
             return $throwable->getErrors();
         }
@@ -111,7 +111,7 @@ abstract class AbstractStrategy
      *
      * @return array
      */
-    protected function getExceptionDetails(\Throwable $throwable, int $debugLevel) : array {
+    protected function getExceptionDetails(\Throwable $throwable, int $debugLevel): array {
         $details = [];
 
         if ($throwable instanceof \Maleficarum\Exception\HttpException) {
@@ -122,7 +122,7 @@ abstract class AbstractStrategy
             $details = [
                 'line' => $throwable->getLine(),
                 'file' => $throwable->getFile(),
-                'trace' => $throwable->getTrace()
+                'trace' => $throwable->getTrace(),
             ];
         }
 
@@ -135,7 +135,7 @@ abstract class AbstractStrategy
      * @param int $statusCode
      * @param string $reasonPhrase
      * @param string $contentType
-     * 
+     *
      * @return void
      */
     protected function attachHeaders(int $statusCode, string $reasonPhrase, string $contentType) {

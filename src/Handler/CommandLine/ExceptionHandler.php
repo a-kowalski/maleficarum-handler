@@ -2,11 +2,11 @@
 /**
  * This class provides functionality of handling PHP exceptions in command line context
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Handler\CommandLine;
 
-class ExceptionHandler extends \Maleficarum\Handler\AbstractHandler
-{
+class ExceptionHandler extends \Maleficarum\Handler\AbstractHandler {
     /**
      * Handle exception
      *

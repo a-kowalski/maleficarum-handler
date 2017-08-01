@@ -2,11 +2,11 @@
 /**
  * This class represents service unavailable exception
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Exception;
 
-class ServiceUnavailableException extends HttpException
-{
+class ServiceUnavailableException extends HttpException {
     /**
      * ServiceUnavailableException constructor.
      *

@@ -2,11 +2,11 @@
 /**
  * This class represents unsupported media type exception
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Exception;
 
-class UnsupportedMediaTypeException extends HttpException
-{
+class UnsupportedMediaTypeException extends HttpException {
     /**
      * UnsupportedMediaTypeException constructor.
      *

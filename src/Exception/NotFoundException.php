@@ -2,11 +2,11 @@
 /**
  * This class represents not found exception
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Exception;
 
-class NotFoundException extends HttpException
-{
+class NotFoundException extends HttpException {
     /**
      * NotFoundException constructor.
      *

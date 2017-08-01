@@ -2,11 +2,11 @@
 /**
  * This class represents bad request exception
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Exception;
 
-class BadRequestException extends HttpException
-{
+class BadRequestException extends HttpException {
     use ErrorTrait;
 
     /**

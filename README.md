@@ -1,6 +1,10 @@
 # Change Log
 This is the Maleficarum Handler component implementation. 
 
+## [3.1.0] - 2017-08-01
+### Added
+- Added strict types declaration
+
 ## [3.1.0] - 2017-03-27
 ### Added
 - Added new exception: UnauthorizedException

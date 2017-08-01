@@ -2,11 +2,11 @@
 /**
  * This class provides functionality of handling PHP errors
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Handler;
 
-class ErrorHandler extends \Maleficarum\Handler\AbstractHandler
-{
+class ErrorHandler extends \Maleficarum\Handler\AbstractHandler {
     /**
      * Generic PHP error handling functionality. For now it just converts errors into runtime exceptions and lets the exception handler deal with them.
      *

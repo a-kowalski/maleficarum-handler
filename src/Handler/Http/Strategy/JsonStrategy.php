@@ -2,11 +2,11 @@
 /**
  * This class provides functionality of rendering JSON response for PHP exceptions
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Handler\Http\Strategy;
 
-class JsonStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
-{
+class JsonStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy {
     /* ------------------------------------ AbstractStrategy methods START ----------------------------- */
     /**
      * Render JSON through response object or plain PHP otherwise
@@ -47,7 +47,7 @@ class JsonStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
     protected function renderGeneric(array $meta = [], array $data = []) {
         echo json_encode([
             'meta' => $meta,
-            'data' => $data
+            'data' => $data,
         ]);
     }
     /* ------------------------------------ AbstractStrategy methods END ------------------------------- */
@@ -61,10 +61,10 @@ class JsonStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
      *
      * @return array
      */
-    private function getMeta(\Throwable $throwable, int $debugLevel) : array {
+    private function getMeta(\Throwable $throwable, int $debugLevel): array {
         $meta = [
             'status' => 'failure',
-            'msg' => $this->getMessage($throwable, $debugLevel)
+            'msg' => $this->getMessage($throwable, $debugLevel),
         ];
 
         $exceptionDetails = $this->getExceptionDetails($throwable, $debugLevel);
@@ -80,7 +80,7 @@ class JsonStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
      *
      * @return array
      */
-    private function getData(\Throwable $throwable) : array {
+    private function getData(\Throwable $throwable): array {
         $errors = $this->getErrors($throwable);
 
         return empty($errors) ? [] : ['errors' => $errors];

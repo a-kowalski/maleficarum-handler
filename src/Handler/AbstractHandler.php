@@ -2,11 +2,11 @@
 /**
  * This class is a base for all handler classes
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Handler;
 
-abstract class AbstractHandler
-{
+abstract class AbstractHandler {
     /**
      * Definitions of available debug levels.
      */
@@ -45,7 +45,7 @@ abstract class AbstractHandler
      * Set debug level for all handlers in the application (both error and exception)
      *
      * @param int $level
-     * 
+     *
      * @return void
      */
     public static function setDebugLevel(int $level) {

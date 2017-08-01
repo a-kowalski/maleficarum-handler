@@ -2,11 +2,11 @@
 /**
  * This class provides functionality of rendering HTML response for PHP exceptions
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Handler\Http\Strategy;
 
-class HtmlStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
-{
+class HtmlStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy {
     /* ------------------------------------ AbstractStrategy methods START ----------------------------- */
     /**
      * Render JSON through response object or plain PHP otherwise
@@ -30,7 +30,7 @@ class HtmlStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
                     'statusCode' => $statusCode,
                     'reasonPhrase' => $reasonPhrase,
                     'message' => $message,
-                    'details' => $details
+                    'details' => $details,
                 ])
                 ->output();
         } catch (\Throwable $thr) {
@@ -61,7 +61,7 @@ class HtmlStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
      *
      * @return array
      */
-    protected function getExceptionDetails(\Throwable $throwable, int $debugLevel) : array {
+    protected function getExceptionDetails(\Throwable $throwable, int $debugLevel): array {
         $details = parent::getExceptionDetails($throwable, $debugLevel);
 
         if (isset($details['trace'])) {
@@ -83,7 +83,7 @@ class HtmlStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
      *
      * @return string
      */
-    private function getErrorPage(int $statusCode, string $reasonPhrase, string $message, array $details) : string {
+    private function getErrorPage(int $statusCode, string $reasonPhrase, string $message, array $details): string {
         $body = $this->getBody($message, $details);
 
         return '<!DOCTYPE html>
@@ -106,7 +106,7 @@ class HtmlStrategy extends \Maleficarum\Handler\Http\Strategy\AbstractStrategy
      *
      * @return string
      */
-    private function getBody(string $message, array $details) : string {
+    private function getBody(string $message, array $details): string {
         $html = '<h2>Error: ' . $message . '</h2>';
 
         if (isset($details['file'], $details['line'], $details['trace'])) {

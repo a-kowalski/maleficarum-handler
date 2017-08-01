@@ -2,11 +2,11 @@
 /**
  * This class represents conflict exception
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Exception;
 
-class ConflictException extends HttpException
-{
+class ConflictException extends HttpException {
     use ErrorTrait;
 
     /**

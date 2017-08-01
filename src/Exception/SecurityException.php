@@ -2,11 +2,11 @@
 /**
  * This class represents security exception
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Exception;
 
-class SecurityException extends HttpException
-{
+class SecurityException extends HttpException {
     /**
      * SecurityException constructor.
      *

@@ -2,11 +2,11 @@
 /**
  * This class is a base for all HTTP exceptions
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Exception;
 
-class HttpException extends \RuntimeException
-{
+class HttpException extends \RuntimeException {
     /**
      * Internal storage for response status code
      *
@@ -45,7 +45,7 @@ class HttpException extends \RuntimeException
      *
      * @return int
      */
-    public function getStatusCode() : int {
+    public function getStatusCode(): int {
         return $this->statusCode;
     }
 
@@ -54,7 +54,7 @@ class HttpException extends \RuntimeException
      *
      * @return string
      */
-    public function getReasonPhrase() : string {
+    public function getReasonPhrase(): string {
         return $this->reasonPhrase;
     }
     /* ------------------------------------ Setters & Getters END -------------------------------------- */

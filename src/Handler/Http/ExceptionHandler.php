@@ -2,11 +2,11 @@
 /**
  * This class provides functionality of handling PHP exceptions
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Handler\Http;
 
-class ExceptionHandler extends \Maleficarum\Handler\AbstractHandler
-{
+class ExceptionHandler extends \Maleficarum\Handler\AbstractHandler {
     /**
      * Internal storage for strategy
      *

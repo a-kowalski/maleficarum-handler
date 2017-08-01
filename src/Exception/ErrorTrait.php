@@ -2,11 +2,11 @@
 /**
  * This trait provides functionality of storing errors
  */
+declare(strict_types=1);
 
 namespace Maleficarum\Exception;
 
-trait ErrorTrait
-{
+trait ErrorTrait {
     /**
      * Internal storage for errors
      *
@@ -20,7 +20,7 @@ trait ErrorTrait
      *
      * @return array
      */
-    public function getErrors() : array {
+    public function getErrors(): array {
         return $this->errors;
     }
 
