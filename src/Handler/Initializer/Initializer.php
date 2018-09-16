@@ -21,7 +21,7 @@ class Initializer {
         $builders = $opts['builders'] ?? [];
         is_array($builders) or $builders = [];
         if (!isset($builders['exception_handler']['skip'])) {
-            \Maleficarum\Ioc\Container::register('Maleficarum\Handler\Http\Strategy', function ($dep, $opts) {
+            \Maleficarum\Ioc\Container::registerBuilder('Maleficarum\Handler\Http\Strategy', function ($dep, $opts) {
                 $class = $opts['__class'];
 
                 /** @var \Maleficarum\Handler\Http\Strategy\AbstractStrategy $strategy */
