@@ -21,13 +21,13 @@ class Initializer {
         $builders = $opts['builders'] ?? [];
         is_array($builders) or $builders = [];
         if (!isset($builders['exception_handler']['skip'])) {
-            \Maleficarum\Ioc\Container::registerBuilder('Maleficarum\Handler\Http\Strategy', function ($dep, $opts) {
+            \Maleficarum\Ioc\Container::registerBuilder('Maleficarum\Handler\Http\Strategy', function ($shares, $opts) {
                 $class = $opts['__class'];
 
                 /** @var \Maleficarum\Handler\Http\Strategy\AbstractStrategy $strategy */
                 $strategy = new $class();
-                if (isset($dep['Maleficarum\Response'])) {
-                    $strategy->setResponse($dep['Maleficarum\Response']);
+                if (isset($shares['Maleficarum\Response'])) {
+                    $strategy->setResponse($shares['Maleficarum\Response']);
                 }
 
                 return $strategy;
