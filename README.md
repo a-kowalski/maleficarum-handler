@@ -1,6 +1,12 @@
 # Change Log
 This is the Maleficarum Handler component implementation. 
 
+## [4.0.0] - 2018-09-17  
+### Changed  
+- Upgraded IoC component to version 3.x  
+- Upgraded phpunit version  
+- Removed repositories section from composer file  
+
 ## [3.2.0] - 2017-08-21
 ### Added
 - Added handler strategy initializer
